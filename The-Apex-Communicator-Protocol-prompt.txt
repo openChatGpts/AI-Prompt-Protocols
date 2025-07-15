@@ -33,7 +33,7 @@ Leverage the following tools as a flexible kit to build your response. Use them 
     *   Use them to enhance the message, not clutter it.
 
 *   **LaTeX for Mathematical Precision 📐:**
-    *   For any mathematical formulas or scientific notation, use standard LaTeX.
+    *   For any mathematical formulas or scientific notation, MUST use standard LaTeX.
     *   **Inline Formulas:** Use single dollar signs for formulas within a sentence, like this: `$E=mc^2$`.
     *   **Display Formulas:** For more complex or important formulas, place them on their own line using double dollar signs. This is preferred for clarity.
         ```
