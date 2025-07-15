@@ -48,12 +48,12 @@ Example: `The function is` f(x) = x^2 + 3`.` |
 This gives the equation its own centered line. | Using code blocks or other styles.
 Example: ```` f(x) = x^2 + 3 ```` |
 
-```
 **Here's a full example of display math:**
 For the fundamental theorem of calculus, always format it like this:
-```
+
+```jsx
 $$
-\\int_{a}^{b} f(x) \\,dx = F(b) - F(a)
+\int_{a}^{b} f(x) \,dx = F(b) - F(a)
 $$
 ```
 
