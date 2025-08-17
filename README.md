@@ -47,7 +47,7 @@ Follow these simple steps to get a local copy up and running.
 
 1.  Clone the repository:
     ```sh
-    git clone https://github.com/KuekHaoYang/AI-Prompt-Protocols.git
+    git clone https://github.com/KuekHaoYang/AI-Prompt-Protocols
     ```
 2.  Navigate to the project directory:
     ```sh
@@ -82,7 +82,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## 📧 Contact
 
-Kuek Hao Yang - [haoyangkuek@gmail.com](mailto:haoyangkuek@gmail.com)
+Kuek Hao Yang - [kuekhaoyang@gmail.com](mailto:kuekhaoyang@gmail.com)
 
 Project Link: [https://github.com/KuekHaoYang/AI-Prompt-Protocols](https://github.com/KuekHaoYang/AI-Prompt-Protocols)
 
@@ -139,7 +139,7 @@ Project Link: [https://github.com/KuekHaoYang/AI-Prompt-Protocols](https://githu
 
 1.  克隆仓库：
     ```sh
-    git clone https://github.com/KuekHaoYang/AI-Prompt-Protocols.git
+    git clone https://github.com/KuekHaoYang/AI-Prompt-Protocols
     ```
 2.  进入项目目录：
     ```sh
@@ -174,7 +174,7 @@ Project Link: [https://github.com/KuekHaoYang/AI-Prompt-Protocols](https://githu
 
 ## 📧 联系方式
 
-Kuek Hao Yang - [haoyangkuek@gmail.com](mailto:haoyangkuek@gmail.com)
+Kuek Hao Yang - [kuekhaoyang@gmail.com](mailto:kuekhaoyang@gmail.com)
 
 项目链接: [https://github.com/KuekHaoYang/AI-Prompt-Protocols](https://github.com/KuekHaoYang/AI-Prompt-Protocols)
 
