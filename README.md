@@ -61,6 +61,7 @@ The primary purpose of this repository is to serve as an educational and practic
 1.  **Study the Guides:** Read the included PDF documents to deepen your understanding of advanced prompt engineering.
 2.  **Utilize the Protocols:** Adapt the text-based prompt protocols for your own projects.
 3.  **Generate New Prompts:** Use the `prompt_generation_prompt.txt` with a powerful LLM to architect new, specialized prompts for any task.
+4.  **Explore KPrompt:** Visit the [KPrompt Website](https://github.com/KuekHaoYang/KPrompt), a web-based application designed for generating high-quality prompts.
 
 ## 📚 Definitive Guides & Protocols
 
@@ -153,6 +154,7 @@ Project Link: [https://github.com/KuekHaoYang/AI-Prompt-Protocols](https://githu
 1.  **学习指南：** 阅读附带的PDF文档，加深对高级提示词工程的理解。
 2.  **运用协议：** 将基于文本的提示词协议应用于您自己的项目。
 3.  **生成新提示词：** 使用 `prompt_generation_prompt.txt` 与强大的大型语言模型（LLM）结合，为任何任务构建新的、专门的提示词。
+4.  **探索 KPrompt：** 访问 [KPrompt 网站](https://github.com/KuekHaoYang/KPrompt)，这是一个专门用于生成高质量提示词的网页应用程序。
 
 ## 📚 权威指南与协议
 
