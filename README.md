@@ -67,8 +67,8 @@ The primary purpose of this repository is to serve as an educational and practic
 
 These resources provide the theoretical and practical foundation for advanced prompt engineering.
 
-*   **[A Definitive Guide to Advanced Prompt Engineering: System Architecture and Conversational Dynamics](./A%20Definitive%20Guide%20to%20Advanced%20Prompt%20Engineering:%20System%20Architecture%20and%20Conversational%20Dynamics.pdf)**
-*   **[高级提示词工程权威指南：系统架构与对话动态](./高级提示词工程权威指南：系统架构与对话动态.pdf)**
+*   **[Architecting Intelligence: A Definitive Guide to the Art and Science of Elite Prompt Engineering](./Architecting%20Intelligence:%20A%20Definitive%20Guide%20to%20the%20Art%20and%20Science%20of%20Elite%20Prompt%20Engineering.pdf)**
+*   **[构建智能：顶级提示词工程的艺术与科学权威指南](./构建智能：顶级提示词工程的艺术与科学权威指南.pdf)**
 *   **[Prompt Generation Protocol](./prompt_generation_prompt.txt)**
 
 ## 🤝 Contributing
