@@ -535,6 +535,377 @@ Project Link: [https://github.com/KuekHaoYang/AI-Prompt-Protocols](https://githu
 *   **[高级提示词工程权威指南：系统架构与对话动态](./高级提示词工程权威指南：系统架构与对话动态.pdf)**
 *   **[提示词生成协议](./prompt_generation_prompt.txt)**
 
+```mermaid
+graph TD;
+    subgraph book ["《智能构建：高阶提示词工程权威指南》"];
+        direction LR;
+        
+        %% Chapter 1: The Philosophy of Prompting
+        ch1("第一章：提示词的哲学");
+        
+        %% Chapter 2: Anatomy of an Effective Prompt
+        ch2("第二章：高效提示词解析");
+        ch1 --> ch2;
+        subgraph sg_ch2 ["解析"];
+            direction TB;
+            pillar_context["第一支柱：语境（“谁”与“为何”）"];
+            pillar_task["第二支柱：任务（“何事”）"];
+            pillar_format["第三支柱：格式（“如何”）"];
+            
+            ch2 --> pillar_context;
+            ch2 --> pillar_task;
+            ch2 --> pillar_format;
+
+            context_role["赋予角色/人设"];
+            context_bg["提供背景信息"];
+            context_audience["明确受众"];
+            context_goal["说明目标/目的"];
+            
+            pillar_context --> context_role;
+            pillar_context --> context_bg;
+            pillar_context --> context_audience;
+            pillar_context --> context_goal;
+            
+            task_verb["使用强劲、明确的动词"];
+            task_chunking["拆解复杂性（分块）"];
+            task_specific["明确具体"];
+            task_constraints["设定限制与边界"];
+            
+            pillar_task --> task_verb;
+            pillar_task --> task_chunking;
+            pillar_task --> task_specific;
+            pillar_task --> task_constraints;
+            
+            format_name["明确指定格式"];
+            format_fewshot["提供示例（小样本格式）"];
+            format_structure["指定结构要素与语气"];
+            
+            pillar_format --> format_name;
+            pillar_format --> format_fewshot;
+            pillar_format --> format_structure;
+        end
+
+        %% Chapter 3: System vs. User Prompts
+        ch3("第三章：两大核心支柱");
+        ch2 --> ch3;
+        subgraph sg_ch3 ["系统提示词 vs. 用户提示词"];
+            direction TB;
+            sys_prompt["系统提示词（“宪法”/“角色设定”）"];
+            usr_prompt["用户提示词（“对话指令”）"];
+
+            ch3 --> sys_prompt;
+            ch3 --> usr_prompt;
+
+            sys_prop1["定义AI的核心身份、规则与约束"];
+            sys_prop2["贯穿整个会话"];
+            sys_prop3["在对话开始前设定"];
+            sys_prompt --> sys_prop1;
+            sys_prompt --> sys_prop2;
+            sys_prompt --> sys_prop3;
+
+            usr_prop1["具体、面向任务的指令"];
+            usr_prop2["动态性，随每次交互变化"];
+            usr_prop3["驱动行动并基于语境"];
+            usr_prompt --> usr_prop1;
+            usr_prompt --> usr_prop2;
+            usr_prompt --> usr_prop3;
+        end
+        
+        %% Foundational Strategies
+        strategies_foundation("基础策略");
+        ch3 --> strategies_foundation;
+
+        %% Chapter 4: Zero-Shot Strategy
+        ch4("第四章：零样本策略");
+        strategies_foundation --> ch4;
+        ch4_desc["不提供示例进行指令"];
+        ch4 -- "依赖模型自身内在知识" --> ch4_desc;
+
+        %% Chapter 5: Few-Shot and One-Shot Strategy
+        ch5("第五章：小样本与单样本策略");
+        ch4 --> ch5;
+        ch5_desc["通过1个或多个示例引导AI（上下文学习）"];
+        ch5 -- "用于特定格式、细微任务或独特风格" --> ch5_desc;
+        
+        %% Chapter 6: The Persona Strategy
+        ch6("第六章：人设策略");
+        strategies_foundation --> ch6;
+        ch6_desc["为AI赋予专家角色"];
+        ch6_principle1["原则一：第一人称身份（“我是一个…”）"];
+        ch6_principle2["原则二：精英人设具象化"];
+        ch6_principle3["原则三：原型化体现"];
+        ch6 --> ch6_desc;
+        ch6_desc --> ch6_principle1;
+        ch6_desc --> ch6_principle2;
+        ch6_desc --> ch6_principle3;
+        
+        %% Content & Structure Strategies
+        strategies_content("内容与结构策略");
+        strategies_foundation --> strategies_content;
+        
+        %% Chapter 7: The Specificity Strategy
+        ch7("第七章：明确性策略");
+        strategies_content --> ch7;
+        ch7_desc["通过提供细节消除歧义"];
+        ch7_tech1["尽可能量化所有内容"];
+        ch7_tech2["定义约束和边界"];
+        ch7_tech3["拆解为子任务"];
+        ch7 --> ch7_desc;
+        ch7_desc --> ch7_tech1;
+        ch7_desc --> ch7_tech2;
+        ch7_desc --> ch7_tech3;
+        
+        %% Chapter 8: The Contextual Priming Strategy
+        ch8("第八章：语境铺垫策略");
+        strategies_content --> ch8;
+        ch8_desc["提供丰富背景以奠定AI基础"];
+        ch8_tech1["提供参考资料（基准数据）"];
+        ch8_tech2["提供情境语境（“为何”）"];
+        ch8_tech3["利用对话历史"];
+        ch8 --> ch8_desc;
+        ch8_desc --> ch8_tech1;
+        ch8_desc --> ch8_tech2;
+        ch8_desc --> ch8_tech3;
+        
+        %% Chapter 9: The Structural Strategy
+        ch9("第九章：结构化策略");
+        strategies_content --> ch9;
+        ch9_desc["使用分隔符和XML标签提高清晰度"];
+        ch9_tool1["分隔符（###, ---）用于简单分隔"];
+        ch9_tool2["XML标签（<tag>）用于层级控制"];
+        ch9 --> ch9_desc;
+        ch9_desc --> ch9_tool1;
+        ch9_desc --> ch9_tool2;
+        
+        %% Reasoning Strategies
+        strategies_reasoning("推理策略");
+        strategies_content --> strategies_reasoning;
+        
+        %% Chapter 10: Chain-of-Thought (CoT)
+        ch10("第十章：思维链（CoT）策略");
+        strategies_reasoning --> ch10;
+        ch10_desc["指导模型“一步步思考”"];
+        ch10_zero["零样本思维链（“我们一步步思考。”）"];
+        ch10_few["小样本思维链（提供推理示例）"];
+        ch10 --> ch10_desc;
+        ch10_desc --> ch10_zero;
+        ch10_desc --> ch10_few;
+
+        %% Chapter 11: Self-Consistency
+        ch11("第十一章：自我一致性策略");
+        ch10 --> ch11;
+        ch11_desc["通过多条推理路径和多数投票增强思维链"];
+        ch11_step1["1. 生成多样路径（通过温度参数）"];
+        ch11_step2["2. 从每条路径中提取最终答案"];
+        ch11_step3["3. 选择最一致的答案（多数投票）"];
+        ch11 --> ch11_desc;
+        ch11_desc --> ch11_step1;
+        ch11_step1 --> ch11_step2;
+        ch11_step2 --> ch11_step3;
+
+        %% Chapter 12: Tree-of-Thoughts (ToT)
+        ch12("第十二章：思维树（ToT）策略");
+        ch11 --> ch12;
+        ch12_desc["同时探索多个解决方案分支"];
+        ch12_step1["1. 思维生成（集思广益多个下一步）"];
+        ch12_step2["2. 状态评估（批判性评估每一步的可行性）"];
+        ch12_step3["3. 搜索与剪枝（选择最佳路径，必要时回溯）"];
+        ch12 --> ch12_desc;
+        ch12_desc --> ch12_step1;
+        ch12_step1 --> ch12_step2;
+        ch12_step2 --> ch12_step3;
+        
+        %% Chapter 13: Step-Back Strategy
+        ch13("第十三章：回溯策略");
+        strategies_reasoning --> ch13;
+        ch13_desc["泛化问题以解锁更广泛的知识"];
+        ch13_stepA["步骤一：抽象提示（要求给出一般原则）"];
+        ch13_stepB["步骤二：应用提示（将原则作为具体问题的语境）"];
+        ch13 --> ch13_desc;
+        ch13_desc --> ch13_stepA;
+        ch13_stepA --> ch13_stepB;
+
+        %% Chapter 14: Self-Correction Strategy
+        ch14("第十四章：自我纠正策略");
+        strategies_reasoning --> ch14;
+        ch14_desc["提示AI审查并完善自己的工作"];
+        ch14_loop["提示词 -> [AI草稿] -> [AI批判] -> [最终输出]"];
+        ch14 --> ch14_desc;
+        ch14_desc --> ch14_loop;
+        
+        %% Agentic & Workflow Strategies
+        strategies_agentic("智能体与工作流策略");
+        strategies_reasoning --> strategies_agentic;
+
+        %% Chapter 15: ReAct Strategy
+        ch15("第十五章：ReAct策略（思考+行动）");
+        strategies_agentic --> ch15;
+        ch15_desc["通过外部工具结合推理与行动"];
+        ch15_loop["思考（规划下一步行动）--> 行动（使用工具）--> 观察（处理工具输出）"];
+        ch15 --> ch15_desc;
+        ch15_desc --> ch15_loop;
+        ch15_loop --> ch15_loop;
+
+        %% Chapter 16: Prompt Chaining Strategy
+        ch16("第十六章：提示词链策略");
+        strategies_agentic --> ch16;
+        ch16_desc["将复杂工作流拆解为按顺序、单一目的的提示词"];
+        ch16_flow["提示词A -> 输出A -> 提示词B的输入 -> 输出B"];
+        ch16 --> ch16_desc;
+        ch16_desc --> ch16_flow;
+
+        %% Chapter 17: Multi-Agent Strategy
+        ch17("第十七章：多智能体策略");
+        ch16 --> ch17;
+        ch17_desc["将工作流分解为由专业AI智能体组成的团队"];
+        ch17_team["协调器 --> 智能体1（人设A）、智能体2（人设B）、智能体3（人设C）"];
+        ch17 --> ch17_desc;
+        ch17_desc --> ch17_team;
+        
+        %% Conversational & Refinement Strategies
+        strategies_refinement("对话与优化策略");
+        strategies_agentic --> strategies_refinement;
+        
+        %% Chapter 18: Constructive Guidance
+        ch18("第十八章：建设性引导策略");
+        strategies_refinement --> ch18;
+        ch18_desc["在对话中迭代和引导AI"];
+        ch18_principle1["使用积极强化"];
+        ch18_principle2["明确管理状态"];
+        ch18_principle3["通过编辑修正轨迹"];
+        ch18 --> ch18_desc;
+        ch18_desc --> ch18_principle1;
+        ch18_desc --> ch18_principle2;
+        ch18_desc --> ch18_principle3;
+        
+        %% Chapter 19: Affirmative Direction
+        ch19("第十九章：肯定性指示策略");
+        strategies_refinement --> ch19;
+        ch19_desc["说明做什么，而不是不做什么"];
+        ch19_good["正例：“以温暖、富有同理心的语气撰写。”"];
+        ch19_bad["反例：“不要听起来像个机器人。”"];
+        ch19 --> ch19_desc;
+        ch19_desc --> ch19_good;
+        ch19_desc --> ch19_bad;
+        
+        %% Output & Parameter Control
+        strategies_control("输出与参数控制");
+        strategies_refinement --> strategies_control;
+        
+        %% Chapter 20: The Output Formatting Strategy
+        ch20("第二十章：输出格式化策略");
+        strategies_control --> ch20;
+        ch20_desc["强制输出JSON和表格等结构化数据"];
+        ch20_tech1["直接指令"];
+        ch20_tech2["提供模式/模板"];
+        ch20_tech3["小样本示例（黄金标准）"];
+        ch20_tech4["预填充响应"];
+        ch20 --> ch20_desc;
+        ch20_desc --> ch20_tech1;
+        ch20_desc --> ch20_tech2;
+        ch20_desc --> ch20_tech3;
+        ch20_desc --> ch20_tech4;
+
+        %% Chapter 21: Response Prefilling
+        ch21("第二十一章：响应预填充策略");
+        ch20 --> ch21;
+        ch21_desc["预设助手答案以进行控制"];
+        ch21_how["API调用：`{'role': 'assistant', 'content': '{'}`"];
+        ch21 --> ch21_desc;
+        ch21_desc --> ch21_how;
+
+        %% Chapter 22: Parameter Tuning
+        ch22("第二十二章：参数调优策略");
+        strategies_control --> ch22;
+        ch22_desc["通过API参数调控行为"];
+        ch22_temp["Temperature（创造力/随机性）"];
+        ch22_topk["Top-K（选项白名单）"];
+        ch22_topp["Top-P（概率预算）"];
+        ch22 --> ch22_desc;
+        ch22_desc --> ch22_temp;
+        ch22_desc --> ch22_topk;
+        ch22_desc --> ch22_topp;
+
+        %% Specialized & Meta Strategies
+        strategies_meta("专项与元策略");
+        strategies_control --> strategies_meta;
+        
+        %% Chapter 23: Long Context
+        ch23("第二十三章：长语境策略");
+        strategies_meta --> ch23;
+        ch23_desc["优化处理大数据量的提示词"];
+        ch23_p1["原则一：指令置于最后"];
+        ch23_p2["原则二：使用结构化标签进行索引"];
+        ch23_p3["原则三：强制主动检索步骤"];
+        ch23 --> ch23_desc;
+        ch23_desc --> ch23_p1;
+        ch23_desc --> ch23_p2;
+        ch23_desc --> ch23_p3;
+        
+        %% Chapter 24: Code Prompting
+        ch24("第二十四章：代码提示词策略");
+        strategies_meta --> ch24;
+        ch24_desc["代码任务的最佳实践"];
+        ch24_gen["生成（提供完整上下文与约束）"];
+        ch24_dbg["调试（提供完整错误信息与案例文件）"];
+        ch24_trans["翻译（要求地道化适应）"];
+        ch24 --> ch24_desc;
+        ch24_desc --> ch24_gen;
+        ch24_desc --> ch24_dbg;
+        ch24_desc --> ch24_trans;
+        
+        %% Chapter 25: Automatic Prompt Engineering (APE)
+        ch25("第二十五章：自动化提示词工程（APE）策略");
+        strategies_meta --> ch25;
+        ch25_desc["利用AI生成和优化提示词"];
+        ch25_gen["1. 提示词生成阶段"];
+        ch25_sel["2. 提示词选择阶段"];
+        ch25 --> ch25_desc;
+        ch25_desc --> ch25_gen;
+        ch25_gen --> ch25_sel;
+        
+        %% Chapter 26: Documentation Strategy
+        ch26("第二十六章：文档化策略");
+        strategies_meta --> ch26;
+        ch26_desc["追踪和版本化提示词的关键纪律"];
+        ch26_why["将提示词视为版本控制（Git）中的源代码"];
+        ch26 --> ch26_desc;
+        ch26_desc --> ch26_why;
+        
+        %% Chapter 27: Unified Framework
+        ch27("第二十七章：统一框架");
+        strategies_meta --> ch27;
+        subgraph sg_ch27 ["统一框架"];
+            direction TB;
+            uf_pillar1["第一支柱：架构"];
+            uf_pillar2["第二支柱：对话"];
+            uf_pillar3["第三支柱：规范"];
+            ch27 --> uf_pillar1;
+            ch27 --> uf_pillar2;
+            ch27 --> uf_pillar3;
+
+            uf_arch_decon["拆解工作流"];
+            uf_arch_pattern["选择模式（链式、多智能体）"];
+            uf_arch_found["定义基础（人设、肯定性指示）"];
+            uf_pillar1 --> uf_arch_decon;
+            uf_pillar1 --> uf_arch_pattern;
+            uf_pillar1 --> uf_arch_found;
+
+            uf_conv_draft["首次输出为草稿"];
+            uf_conv_steer["精准引导（指导）"];
+            uf_conv_reason["综合推理（思维链、思维树）"];
+            uf_pillar2 --> uf_conv_draft;
+            uf_pillar2 --> uf_conv_steer;
+            uf_pillar2 --> uf_conv_reason;
+
+            uf_disc_docs["文档化策略"];
+            uf_disc_iter["迭代与评估思维"];
+            uf_pillar3 --> uf_disc_docs;
+            uf_pillar3 --> uf_disc_iter;
+        end
+    end
+```
+
 ## 🤝 贡献
 
 贡献使开源社区成为一个学习、启发和创造的绝佳场所。我们**非常感谢**您的任何贡献。
