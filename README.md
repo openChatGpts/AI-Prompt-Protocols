@@ -71,6 +71,377 @@ These resources provide the theoretical and practical foundation for advanced pr
 *   **[构建智能：顶级提示词工程的艺术与科学权威指南](./构建智能：顶级提示词工程的艺术与科学权威指南.pdf)**
 *   **[Prompt Generation Protocol](./prompt_generation_prompt.txt)**
 
+```mermaid
+graph TD;
+    subgraph book ["Architecting Intelligence: A Definitive Guide to Elite Prompt Engineering"];
+        direction LR;
+        
+        %% Chapter 1: The Philosophy of Prompting
+        ch1("Ch 1: Philosophy of Prompting");
+        
+        %% Chapter 2: Anatomy of an Effective Prompt
+        ch2("Ch 2: Anatomy of an Effective Prompt");
+        ch1 --> ch2;
+        subgraph sg_ch2 ["Anatomy"];
+            direction TB;
+            pillar_context["Pillar 1: Context ('Who' & 'Why')"];
+            pillar_task["Pillar 2: Task ('What')"];
+            pillar_format["Pillar 3: Format ('How')"];
+            
+            ch2 --> pillar_context;
+            ch2 --> pillar_task;
+            ch2 --> pillar_format;
+
+            context_role["Assign a Role/Persona"];
+            context_bg["Provide Background Info"];
+            context_audience["Define the Audience"];
+            context_goal["State the Goal/Purpose"];
+            
+            pillar_context --> context_role;
+            pillar_context --> context_bg;
+            pillar_context --> context_audience;
+            pillar_context --> context_goal;
+            
+            task_verb["Use Strong, Unambiguous Verbs"];
+            task_chunking["Break Down Complexity (Chunking)"];
+            task_specific["Be Explicit and Specific"];
+            task_constraints["State Constraints and Boundaries"];
+            
+            pillar_task --> task_verb;
+            pillar_task --> task_chunking;
+            pillar_task --> task_specific;
+            pillar_task --> task_constraints;
+            
+            format_name["Explicitly Name the Format"];
+            format_fewshot["Provide Examples (Few-Shot Formatting)"];
+            format_structure["Specify Structural Elements & Tone"];
+            
+            pillar_format --> format_name;
+            pillar_format --> format_fewshot;
+            pillar_format --> format_structure;
+        end
+
+        %% Chapter 3: System vs. User Prompts
+        ch3("Ch 3: The Two Pillars");
+        ch2 --> ch3;
+        subgraph sg_ch3 ["System vs. User Prompts"];
+            direction TB;
+            sys_prompt["System Prompt ('The Constitution / Character Brief')"];
+            usr_prompt["User Prompt ('The Conversational Directive')"];
+
+            ch3 --> sys_prompt;
+            ch3 --> usr_prompt;
+
+            sys_prop1["Defines AI's core identity, rules, constraints"];
+            sys_prop2["Persistent for the entire session"];
+            sys_prop3["Set pre-conversationally"];
+            sys_prompt --> sys_prop1;
+            sys_prompt --> sys_prop2;
+            sys_prompt --> sys_prop3;
+
+            usr_prop1["Specific, task-oriented instruction"];
+            usr_prop2["Dynamic, changes with each turn"];
+            usr_prop3["Action-driven and contextual"];
+            usr_prompt --> usr_prop1;
+            usr_prompt --> usr_prop2;
+            usr_prompt --> usr_prop3;
+        end
+        
+        %% Foundational Strategies
+        strategies_foundation("Foundational Strategies");
+        ch3 --> strategies_foundation;
+
+        %% Chapter 4: Zero-Shot Strategy
+        ch4("Ch 4: The Zero-Shot Strategy");
+        strategies_foundation --> ch4;
+        ch4_desc["Instructing without providing examples"];
+        ch4 -- "Relies on model's intrinsic knowledge" --> ch4_desc;
+
+        %% Chapter 5: Few-Shot and One-Shot Strategy
+        ch5("Ch 5: The Few-Shot & One-Shot Strategy");
+        ch4 --> ch5;
+        ch5_desc["Guiding AI with 1+ examples (In-Context Learning)"];
+        ch5 -- "Used for specific formats, nuanced tasks, or unique styles" --> ch5_desc;
+        
+        %% Chapter 6: The Persona Strategy
+        ch6("Ch 6: The Persona Strategy");
+        strategies_foundation --> ch6;
+        ch6_desc["Assigning an expert role to the AI"];
+        ch6_principle1["Principle 1: First-Person Identity ('I am...')"];
+        ch6_principle2["Principle 2: Elite Persona Instantiation"];
+        ch6_principle3["Principle 3: Archetypal Embodiment"];
+        ch6 --> ch6_desc;
+        ch6_desc --> ch6_principle1;
+        ch6_desc --> ch6_principle2;
+        ch6_desc --> ch6_principle3;
+        
+        %% Content & Structure Strategies
+        strategies_content("Content & Structure Strategies");
+        strategies_foundation --> strategies_content;
+        
+        %% Chapter 7: The Specificity Strategy
+        ch7("Ch 7: The Specificity Strategy");
+        strategies_content --> ch7;
+        ch7_desc["Eliminating ambiguity by providing details"];
+        ch7_tech1["Quantify everything possible"];
+        ch7_tech2["Define constraints and boundaries"];
+        ch7_tech3["Decompose into sub-tasks"];
+        ch7 --> ch7_desc;
+        ch7_desc --> ch7_tech1;
+        ch7_desc --> ch7_tech2;
+        ch7_desc --> ch7_tech3;
+        
+        %% Chapter 8: The Contextual Priming Strategy
+        ch8("Ch 8: The Contextual Priming Strategy");
+        strategies_content --> ch8;
+        ch8_desc["Providing rich background to ground the AI"];
+        ch8_tech1["Provide source material (Grounding Data)"];
+        ch8_tech2["Provide situational context (The 'Why')"];
+        ch8_tech3["Leverage conversational history"];
+        ch8 --> ch8_desc;
+        ch8_desc --> ch8_tech1;
+        ch8_desc --> ch8_tech2;
+        ch8_desc --> ch8_tech3;
+        
+        %% Chapter 9: The Structural Strategy
+        ch9("Ch 9: The Structural Strategy");
+        strategies_content --> ch9;
+        ch9_desc["Using delimiters and XML tags for clarity"];
+        ch9_tool1["Delimiters (###, ---) for simple separation"];
+        ch9_tool2["XML Tags (<tag>) for hierarchical control"];
+        ch9 --> ch9_desc;
+        ch9_desc --> ch9_tool1;
+        ch9_desc --> ch9_tool2;
+        
+        %% Reasoning Strategies
+        strategies_reasoning("Advanced Reasoning Strategies");
+        strategies_content --> strategies_reasoning;
+        
+        %% Chapter 10: Chain-of-Thought (CoT)
+        ch10("Ch 10: Chain-of-Thought (CoT) Strategy");
+        strategies_reasoning --> ch10;
+        ch10_desc["Instructing the model to 'think step-by-step'"];
+        ch10_zero["Zero-Shot CoT ('Let's think step by step.')"];
+        ch10_few["Few-Shot CoT (Providing examples of reasoning)"];
+        ch10 --> ch10_desc;
+        ch10_desc --> ch10_zero;
+        ch10_desc --> ch10_few;
+
+        %% Chapter 11: Self-Consistency
+        ch11("Ch 11: The Self-Consistency Strategy");
+        ch10 --> ch11;
+        ch11_desc["Enhancing CoT with multiple reasoning paths and majority voting"];
+        ch11_step1["1. Generate Diverse Paths (via Temperature)"];
+        ch11_step2["2. Extract Final Answer from Each Path"];
+        ch11_step3["3. Select Most Consistent Answer (Majority Vote)"];
+        ch11 --> ch11_desc;
+        ch11_desc --> ch11_step1;
+        ch11_step1 --> ch11_step2;
+        ch11_step2 --> ch11_step3;
+
+        %% Chapter 12: Tree-of-Thoughts (ToT)
+        ch12("Ch 12: The Tree-of-Thoughts (ToT) Strategy");
+        ch11 --> ch12;
+        ch12_desc["Exploring multiple solution branches simultaneously"];
+        ch12_step1["1. Thought Generation (Brainstorm multiple next steps)"];
+        ch12_step2["2. State Evaluation (Critique the viability of each step)"];
+        ch12_step3["3. Search & Pruning (Select best path, backtrack if needed)"];
+        ch12 --> ch12_desc;
+        ch12_desc --> ch12_step1;
+        ch12_step1 --> ch12_step2;
+        ch12_step2 --> ch12_step3;
+        
+        %% Chapter 13: Step-Back Strategy
+        ch13("Ch 13: The Step-Back Strategy");
+        strategies_reasoning --> ch13;
+        ch13_desc["Generalizing a problem to unlock broader knowledge"];
+        ch13_stepA["Step 1: The Abstraction Prompt (Ask for general principles)"];
+        ch13_stepB["Step 2: The Application Prompt (Use principles as context for specific problem)"];
+        ch13 --> ch13_desc;
+        ch13_desc --> ch13_stepA;
+        ch13_stepA --> ch13_stepB;
+
+        %% Chapter 14: Self-Correction Strategy
+        ch14("Ch 14: The Self-Correction Strategy");
+        strategies_reasoning --> ch14;
+        ch14_desc["Prompting the AI to review and refine its own work"];
+        ch14_loop["Prompt -> [AI Draft] -> [AI Critique] -> [Final Output]"];
+        ch14 --> ch14_desc;
+        ch14_desc --> ch14_loop;
+        
+        %% Agentic & Workflow Strategies
+        strategies_agentic("Agentic & Workflow Strategies");
+        strategies_reasoning --> strategies_agentic;
+
+        %% Chapter 15: ReAct Strategy
+        ch15("Ch 15: The ReAct Strategy (Reason + Act)");
+        strategies_agentic --> ch15;
+        ch15_desc["Combining reasoning with action via external tools"];
+        ch15_loop["Thought (Plan next action) --> Action (Use a tool) --> Observation (Process tool output)"];
+        ch15 --> ch15_desc;
+        ch15_desc --> ch15_loop;
+        ch15_loop --> ch15_loop;
+
+        %% Chapter 16: Prompt Chaining Strategy
+        ch16("Ch 16: The Prompt Chaining Strategy");
+        strategies_agentic --> ch16;
+        ch16_desc["Breaking down complex workflows into sequential, single-purpose prompts"];
+        ch16_flow["Prompt A -> Output A -> Input for Prompt B -> Output B"];
+        ch16 --> ch16_desc;
+        ch16_desc --> ch16_flow;
+
+        %% Chapter 17: Multi-Agent Strategy
+        ch17("Ch 17: The Multi-Agent Strategy");
+        ch16 --> ch17;
+        ch17_desc["Decomposing workflows into a team of specialized AI agents"];
+        ch17_team["Orchestrator --> Agent1(Persona A), Agent2(Persona B), Agent3(Persona C)"];
+        ch17 --> ch17_desc;
+        ch17_desc --> ch17_team;
+        
+        %% Conversational & Refinement Strategies
+        strategies_refinement("Conversational & Refinement Strategies");
+        strategies_agentic --> strategies_refinement;
+        
+        %% Chapter 18: Constructive Guidance
+        ch18("Ch 18: The Constructive Guidance Strategy");
+        strategies_refinement --> ch18;
+        ch18_desc["Iterating and steering the AI within a conversation"];
+        ch18_principle1["Use Positive Reinforcement"];
+        ch18_principle2["Manage State Explicitly"];
+        ch18_principle3["Correct Trajectory via Editing"];
+        ch18 --> ch18_desc;
+        ch18_desc --> ch18_principle1;
+        ch18_desc --> ch18_principle2;
+        ch18_desc --> ch18_principle3;
+        
+        %% Chapter 19: Affirmative Direction
+        ch19("Ch 19: The Affirmative Direction Strategy");
+        strategies_refinement --> ch19;
+        ch19_desc["Stating what to do vs. what NOT to do"];
+        ch19_good["GOOD: 'Write in a warm, empathetic tone.'"];
+        ch19_bad["BAD: 'Do not sound like a robot.'"];
+        ch19 --> ch19_desc;
+        ch19_desc --> ch19_good;
+        ch19_desc --> ch19_bad;
+        
+        %% Output & Parameter Control
+        strategies_control("Output & Parameter Control");
+        strategies_refinement --> strategies_control;
+        
+        %% Chapter 20: Output Formatting
+        ch20("Ch 20: The Output Formatting Strategy");
+        strategies_control --> ch20;
+        ch20_desc["Forcing structured data like JSON and Tables"];
+        ch20_tech1["Direct Command"];
+        ch20_tech2["Provide Schema/Template"];
+        ch20_tech3["Few-Shot Example (Gold Standard)"];
+        ch20_tech4["Response Prefilling"];
+        ch20 --> ch20_desc;
+        ch20_desc --> ch20_tech1;
+        ch20_desc --> ch20_tech2;
+        ch20_desc --> ch20_tech3;
+        ch20_desc --> ch20_tech4;
+
+        %% Chapter 21: Response Prefilling
+        ch21("Ch 21: The Response Prefilling Strategy");
+        ch20 --> ch21;
+        ch21_desc["Seeding the assistant's answer for control"];
+        ch21_how["API Call: `{'role': 'assistant', 'content': '{'}`"];
+        ch21 --> ch21_desc;
+        ch21_desc --> ch21_how;
+
+        %% Chapter 22: Parameter Tuning
+        ch22("Ch 22: The Parameter Tuning Strategy");
+        strategies_control --> ch22;
+        ch22_desc["Engineering behavior with API parameters"];
+        ch22_temp["Temperature (Creativity/Randomness)"];
+        ch22_topk["Top-K (Whitelist of options)"];
+        ch22_topp["Top-P (Probability budget)"];
+        ch22 --> ch22_desc;
+        ch22_desc --> ch22_temp;
+        ch22_desc --> ch22_topk;
+        ch22_desc --> ch22_topp;
+
+        %% Specialized & Meta Strategies
+        strategies_meta("Specialized & Meta Strategies");
+        strategies_control --> strategies_meta;
+        
+        %% Chapter 23: Long Context
+        ch23("Ch 23: The Long Context Strategy");
+        strategies_meta --> ch23;
+        ch23_desc["Optimizing for prompts with large data volumes"];
+        ch23_p1["Rule 1: Place Instructions Last"];
+        ch23_p2["Rule 2: Use Structural Tags to Index"];
+        ch23_p3["Rule 3: Force Active Retrieval Step"];
+        ch23 --> ch23_desc;
+        ch23_desc --> ch23_p1;
+        ch23_desc --> ch23_p2;
+        ch23_desc --> ch23_p3;
+        
+        %% Chapter 24: Code Prompting
+        ch24("Ch 24: The Code Prompting Strategy");
+        strategies_meta --> ch24;
+        ch24_desc["Best practices for code tasks"];
+        ch24_gen["Generation (Provide full context & constraints)"];
+        ch24_dbg["Debugging (Provide full error & case file)"];
+        ch24_trans["Translation (Demand idiomatic adaptation)"];
+        ch24 --> ch24_desc;
+        ch24_desc --> ch24_gen;
+        ch24_desc --> ch24_dbg;
+        ch24_desc --> ch24_trans;
+        
+        %% Chapter 25: Automatic Prompt Engineering (APE)
+        ch25("Ch 25: The Automatic Prompt Engineering (APE) Strategy");
+        strategies_meta --> ch25;
+        ch25_desc["Using AI to generate and optimize prompts"];
+        ch25_gen["1. Prompt Generation Phase"];
+        ch25_sel["2. Prompt Selection Phase"];
+        ch25 --> ch25_desc;
+        ch25_desc --> ch25_gen;
+        ch25_gen --> ch25_sel;
+        
+        %% Chapter 26: Documentation Strategy
+        ch26("Ch 26: The Documentation Strategy");
+        strategies_meta --> ch26;
+        ch26_desc["The critical discipline of tracking and versioning prompts"];
+        ch26_why["Treat prompts like source code in version control (Git)"];
+        ch26 --> ch26_desc;
+        ch26_desc --> ch26_why;
+        
+        %% Chapter 27: Unified Framework
+        ch27("Ch 27: Unified Framework");
+        strategies_meta --> ch27;
+        subgraph sg_ch27 ["Unified Framework"];
+            direction TB;
+            uf_pillar1["Pillar 1: Architecture"];
+            uf_pillar2["Pillar 2: Conversation"];
+            uf_pillar3["Pillar 3: Discipline"];
+            ch27 --> uf_pillar1;
+            ch27 --> uf_pillar2;
+            ch27 --> uf_pillar3;
+
+            uf_arch_decon["Deconstruct Workflow"];
+            uf_arch_pattern["Choose Pattern (Chain, Multi-Agent)"];
+            uf_arch_found["Define Foundation (Persona, Affirmative Dir.)"];
+            uf_pillar1 --> uf_arch_decon;
+            uf_pillar1 --> uf_arch_pattern;
+            uf_pillar1 --> uf_arch_found;
+
+            uf_conv_draft["First Output is a Draft"];
+            uf_conv_steer["Steer with Precision (Guidance)"];
+            uf_conv_reason["Synthesize Reasoning (CoT, ToT)"];
+            uf_pillar2 --> uf_conv_draft;
+            uf_pillar2 --> uf_conv_steer;
+            uf_pillar2 --> uf_conv_reason;
+
+            uf_disc_docs["Documentation Strategy"];
+            uf_disc_iter["Iteration & Evaluation Mindset"];
+            uf_pillar3 --> uf_disc_docs;
+            uf_pillar3 --> uf_disc_iter;
+        end
+    end
+```
+
 ## 🤝 Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
