@@ -37,7 +37,7 @@ Process the provided chapter content according to your core programming as a Cog
 </task>
 ```
 
-Recommand temperature: 0.2 - 0.3
+Recommand temperature: 0.2 - 0.3 (0.25)
 
 
 
